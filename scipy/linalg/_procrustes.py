@@ -93,7 +93,7 @@ def orthogonal_procrustes(A, B, check_finite=True):
         raise ValueError('the shapes of A and B differ (%s vs %s)' % (
             A.shape, B.shape))
     # Be clever with transposes, with the intention to save memory.
-    # The conjugate has no affect for real inputs, but gives the correct solution for complex inputs.
+    # The conjugate has no effect for real inputs, but gives the correct solution for complex inputs.
     u, w, vt = svd((B.T@np.conjugate(A)).T)
     R = u@vt
     scale = w.sum()
